@@ -5,14 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ParkingSection.create(name: 'A', capacity: 100)
-ParkingSection.create(name: 'B', capacity: 100)
-ParkingSection.create(name: 'C', capacity: 200)
-ParkingSection.create(name: 'D', capacity: 150)
-ParkingSection.create(name: 'E', capacity: 150)
-ParkingSection.create(name: 'F', capacity: 150)
-ParkingSection.create(name: 'G', capacity: 150)
-
 
 admin = Admin.create(username: 'Admin', password: 'bigtent23@254')
 

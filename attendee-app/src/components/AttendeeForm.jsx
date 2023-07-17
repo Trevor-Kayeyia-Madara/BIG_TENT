@@ -104,6 +104,7 @@ const AttendeeForm = () => {
             <input
               type="text"
               id="vehicle-registration-number"
+              placeholder='EG KZZ999Z'
               className="form-control"
               value={vehicleRegistrationNumber}
               onChange={(event) => setVehicleRegistrationNumber(event.target.value)}
@@ -115,6 +116,7 @@ const AttendeeForm = () => {
               type="text"
               id="vehicle-make"
               className="form-control"
+              placeholder='E.G Toyota,Nissan'
               value={vehicleMake}
               onChange={(event) => setVehicleMake(event.target.value)}
             />
@@ -125,6 +127,7 @@ const AttendeeForm = () => {
               type="text"
               id="vehicle-model"
               className="form-control"
+              placeholder='Land Cruise Note etc'
               value={vehicleModel}
               onChange={(event) => setVehicleModel(event.target.value)}
             />
@@ -165,6 +168,7 @@ const AttendeeForm = () => {
               type="email"
               id="driver-email"
               className="form-control"
+              placeholder='abc@example.com'
               value={driverEmail}
               onChange={(event) => setDriverEmail(event.target.value)}
             />
@@ -174,6 +178,7 @@ const AttendeeForm = () => {
             <input
               type="text"
               id="driver-telephone-number"
+              placeholder='9999999999'
               className="form-control"
               value={driverTelephoneNumber}
               onChange={(event) => setDriverTelephoneNumber(event.target.value)}

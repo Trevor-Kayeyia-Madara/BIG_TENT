@@ -6,6 +6,7 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import GrantAccess from './components/GrantAccess';
 import AdminConsole from './components/AdminConsole';
+import CheckoutPage from './components/CheckoutPage';
 
 
 
@@ -18,6 +19,7 @@ const AdminApp = () => {
     <Route path="/admin/dashboard" element={<AdminDashboard />} />
     <Route path="/admin/grant_access" element={<GrantAccess />} />
     <Route path="/admin/login" element={<AdminLogin />} />
+    <Route path="/admin/checkout" element={<CheckoutPage />} />
   </Routes>
   </>
   );

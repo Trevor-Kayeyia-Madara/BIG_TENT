@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_17_112538) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_17_171913) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -30,10 +30,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_112538) do
     t.string "vehicle_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "parking_section"
-    t.datetime "check_in"
-    t.datetime "check_out"
     t.string "ticket_number"
+    t.integer "parking_section_id"
+    t.index ["parking_section_id"], name: "index_attendees_on_parking_section_id"
   end
 
   create_table "parking_sections", force: :cascade do |t|
@@ -43,4 +42,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_112538) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attendees", "parking_sections"
 end

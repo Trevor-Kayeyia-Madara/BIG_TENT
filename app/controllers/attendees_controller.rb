@@ -41,7 +41,16 @@ class AttendeesController < ApplicationController
     end
   end
 
-  # ...
+  def checkout
+    attendee = Attendee.find_by(ticket_number: params[:ticket_number])
+
+    if attendee
+      attendee.update(parked: false)
+      render json: { message: 'Checked out of parking.' }
+    else
+      render json: { error: 'Attendee not found' }, status: :not_found
+    end
+  end
 
   private
 

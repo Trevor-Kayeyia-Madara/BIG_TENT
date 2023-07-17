@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-const GrantAccess = () => {
+const CheckoutPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [attendee, setAttendee] = useState(null);
+  const [checkoutMessage, setCheckoutMessage] = useState('');
 
   const handleSearch = async () => {
     try {
@@ -23,9 +22,9 @@ const GrantAccess = () => {
     }
   };
 
-  const handleGrantAccess = async () => {
+  const handleCheckout = async () => {
     try {
-      const response = await fetch('/admin/grant_access', {
+      const response = await fetch('/admin/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,22 +33,19 @@ const GrantAccess = () => {
       });
 
       if (response.ok) {
-        // Access granted, update attendee details
-        const updatedAttendee = await response.json();
-        setAttendee(updatedAttendee);
-        toast.success('Access granted');
+        setCheckoutMessage('Attendee successfully checked out');
       } else {
-        console.error('Error granting access:', response.status);
+        console.error('Error checking out attendee:', response.status);
       }
     } catch (error) {
-      console.error('Error granting access:', error);
+      console.error('Error checking out attendee:', error);
     }
   };
 
   return (
     <div className="container">
       <Navigation />
-      <h2>Grant Access</h2>
+      <h2>Checkout</h2>
       <div className="form-group">
         <label htmlFor="searchInput">Search by Ticket Number or Vehicle Registration Number:</label>
         <div className="input-group">
@@ -75,12 +71,12 @@ const GrantAccess = () => {
           <p>Driver Identification Number: {attendee.driver_identification_number}</p>
           <p>Driver Email: {attendee.driver_email}</p>
           <p>Driver Telephone Number: {attendee.driver_telephone_number}</p>
-          <button className="btn btn-success" onClick={handleGrantAccess}>Grant Access</button>
+          <button className="btn btn-danger" onClick={handleCheckout}>Check Out</button>
         </div>
       )}
-      <ToastContainer position="top-center" />
+      {checkoutMessage && <p className="text-success">{checkoutMessage}</p>}
     </div>
   );
 };
 
-export default GrantAccess;
+export default CheckoutPage;
