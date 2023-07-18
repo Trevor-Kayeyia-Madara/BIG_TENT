@@ -7,27 +7,21 @@ class AdminController < ApplicationController
   def grant_access
     ticket_number = params[:ticket_number]
     vehicle_registration_number = params[:vehicle_registration_number]
-
+  
     if ticket_number.present?
       attendee = Attendee.find_by(ticket_number: ticket_number)
     elsif vehicle_registration_number.present?
       attendee = Attendee.find_by(vehicle_registration_number: vehicle_registration_number)
     end
-
+  
     if attendee
-      case attendee.parked
-      when 0 # RES
-        attendee.update(parked: 1) # Set parked status to 1 (IN)
-        render json: { message: 'Access granted. Vehicle parked.' }
-      when 1 # IN
-        render json: { message: 'Access granted. Vehicle already parked.' }
-      when 2 # OUT
-        render json: { message: 'Access granted. Vehicle has already checked out.' }
-      end
+      render json: { message: 'Access granted' }
     else
       render json: { error: 'Attendee not found' }, status: :not_found
     end
   end
+  
+
 
   def login
     username = params[:username]
