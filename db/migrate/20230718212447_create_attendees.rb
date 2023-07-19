@@ -10,14 +10,12 @@ class CreateAttendees < ActiveRecord::Migration[7.0]
       t.string :driver_email
       t.string :driver_telephone_number
       t.string :vehicle_type
-      t.datetime :check_in_date
-      t.datetime :check_out_date
+      t.time :check_in_time
+      t.time :check_out_time
       t.datetime :date_stamp
       t.string :booking_status
       t.string :ticket_number
-      t.string :attendee_type
-      t.string :parking_section_name
-
+      
       t.timestamps
     end
   end

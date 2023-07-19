@@ -1,11 +1,5 @@
+admin1 = Admin.create(username: 'Admin1', password: '123')
+admin2 = Admin.create(username: 'Admin2', password: 'abc')
 
-
-admin = Admin.create(username: 'TMK254', password: 'tmk@254')
-
-puts "Admin created with username: #{admin.username} and password: #{admin.password}"
-
-# ParkingSection.create([
-#   { name: 'VIP Parking', capacity: 30 },
-#   { name: 'Organizer Parking', capacity: 120 },
-#   { name: 'Regular Parking', capacity: 2000 }
-# ])
+puts "Admin 1 created with username: #{admin1.username} and password: #{admin1.password}"
+puts "Admin 2 created with username: #{admin2.username} and password: #{admin2.password}"
