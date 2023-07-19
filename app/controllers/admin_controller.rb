@@ -22,7 +22,7 @@ class AdminController < ApplicationController
 
     admin = Admin.find_by(username: username)
 
-    if admin && admin.authenticate(password)
+    if admin&.authenticate(password)
       render json: { message: 'Successfully logged in' }
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized

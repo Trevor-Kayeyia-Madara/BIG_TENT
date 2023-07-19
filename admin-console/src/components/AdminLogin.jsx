@@ -9,35 +9,34 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username === 'Admin' && password === 'bigtent23@254') {
-      // Successful login
-      setErrorMessage('');
-      try {
-        const response = await fetch('/admin/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, password }),
-        });
-        // Perform any login-related logic here (e.g., setting authentication state)
-        if (response.ok) {
-          navigate('/admin/dashboard'); // Navigate to the dashboard
-        } else {
-          setErrorMessage('Login failed');
-        }
-      } catch (error) {
-        setErrorMessage('Login failed');
+  
+    try {
+      const response = await fetch('/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (response.ok) {
+        // Successful login
+        setErrorMessage('');
+        navigate('/admin/dashboard'); // Navigate to the dashboard or perform any other login-related logic
+      } else {
+        // Invalid credentials
+        setErrorMessage('Invalid username or password');
       }
-    } else {
-      // Invalid credentials
-      setErrorMessage('Invalid username or password');
+    } catch (error) {
+      // Login failed
+      setErrorMessage('Login failed');
     }
+  
     // Clear form inputs
     setUsername('');
     setPassword('');
   };
-
+  
   return (
     <div style={styles.container}>
       <div style={styles.card}>
