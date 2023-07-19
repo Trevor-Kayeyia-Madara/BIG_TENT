@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navigation from './Navigation';
+
 
 const AdminDashboard = () => {
   const [attendees, setAttendees] = useState([]);
@@ -21,7 +21,6 @@ const AdminDashboard = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <Navigation />
         <h2 style={styles.heading}>Admin Dashboard</h2>
         <div style={styles.tableContainer}>
           <h3>Vehicle and Owner Details</h3>
