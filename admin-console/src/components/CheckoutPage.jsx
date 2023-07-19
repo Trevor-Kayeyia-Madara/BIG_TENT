@@ -35,8 +35,8 @@ const CheckoutPage = () => {
       });
 
       if (response.ok) {
-        setCheckoutMessage('Attendee successfully checked out');
-        toast.success('Attendee successfully checked out');
+        setCheckoutMessage('Vehicle successfully checked out');
+        toast.success('Vehicle successfully checked out');
       } else {
         console.error('Error checking out attendee:', response.status);
       }

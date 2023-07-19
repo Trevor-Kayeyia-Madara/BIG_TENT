@@ -24,20 +24,21 @@ const AdminDashboard = () => {
         <Navigation />
         <h2 style={styles.heading}>Admin Dashboard</h2>
         <div style={styles.tableContainer}>
-          <h3>Attendee Details</h3>
+          <h3>Vehicle and Owner Details</h3>
           <table style={styles.table}>
             <thead>
               <tr>
-                <th>Ticket Number</th>
-                <th>Vehicle Registration</th>
-                <th>Vehicle Make</th>
-                <th>Vehicle Model</th>
-                <th>Driver First Name</th>
-                <th>Driver Last Name</th>
-                <th>Driver ID</th>
-                <th>Driver Email</th>
-                <th>Driver Telephone</th>
-                <th>Vehicle Type</th>
+              <th>Ticket Number</th>
+      <th>Vehicle Registration Number</th>
+      <th>Vehicle Make</th>
+      <th>Vehicle Model</th>
+      <th>Driver First Name</th>
+      <th>Driver Last Name</th>
+      <th>Driver Identification Number</th>
+      <th>Driver Email</th>
+      <th>Driver Telephone Number</th>
+      <th>Vehicle Type</th>
+      <th>Booking Status</th>
               </tr>
             </thead>
             <tbody>
@@ -53,6 +54,7 @@ const AdminDashboard = () => {
                   <td>{attendee.driver_email}</td>
                   <td>{attendee.driver_telephone_number}</td>
                   <td>{attendee.vehicle_type}</td>
+                  <td>{attendee.booking_status}</td>
                 </tr>
               ))}
             </tbody>

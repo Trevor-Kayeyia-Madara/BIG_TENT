@@ -8,12 +8,13 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.create(attendee_params)
     if @attendee
       ticket_number = generate_ticket_number
-      @attendee.update(ticket_number: ticket_number)
+      @attendee.update(ticket_number: ticket_number, date_stamp: Time.now, booking_status: 'REG')
       render json: @attendee, serializer: AttendeeSerializer
     else
       render json: { error: "Failed to register attendee" }, status: :unprocessable_entity
     end
   end
+  
 
   def search_attendee
     query = params[:query]
@@ -61,6 +62,6 @@ class AttendeesController < ApplicationController
   def generate_ticket_number
     date_format = Time.now.strftime("%Y%m%d")
     attendees_count = Attendee.count.to_s.rjust(3, '0')
-    "BIGTENT#{date_format}-#{attendees_count}"
+    "TMK#{date_format}-#{attendees_count}"
   end
 end

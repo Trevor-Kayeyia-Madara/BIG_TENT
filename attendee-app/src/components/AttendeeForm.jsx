@@ -96,7 +96,7 @@ const AttendeeForm = () => {
       <ToastContainer position="top-center" />
       <div className="attendee-card bg-white rounded-lg shadow-md p-6 mx-auto max-w-md">
         <form onSubmit={handleSubmit}>
-          <h2 className="text-2xl font-bold mb-6">Attendee Registration</h2>
+          <h2 className="text-2xl font-bold mb-6">Vehicle Registration</h2>
           <div className="mb-4">
             <label htmlFor="vehicle-registration-number" className="block mb-2 font-medium">Vehicle Registration Number</label>
             <input
@@ -199,6 +199,7 @@ const AttendeeForm = () => {
                 <option value="car">Car</option>
                 <option value="bus">Bus</option>
                 <option value="motorcycle">Motorcycle</option>
+                <option value="truck">Truck</option>
               </select>
             </div>
           </div>

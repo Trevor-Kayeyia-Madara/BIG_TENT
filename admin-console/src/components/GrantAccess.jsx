@@ -34,10 +34,9 @@ const GrantAccess = () => {
       });
 
       if (response.ok) {
-        // Access granted, update attendee details
-        const updatedAttendee = await response.json();
-        setAttendee(updatedAttendee);
-        toast.success('Access granted');
+        const { message } = await response.json();
+        setAttendee((prevAttendee) => ({ ...prevAttendee, booking_status: 'parked' }));
+        toast.success(message);
       } else {
         console.error('Error granting access:', response.status);
       }
@@ -73,7 +72,7 @@ const GrantAccess = () => {
         </div>
         {attendee && (
           <div>
-            <h3 style={styles.detailsHeading}>Attendee Details</h3>
+            <h3 style={styles.detailsHeading}>Owner Details</h3>
             <div style={styles.blockTable}>
               <div style={styles.row}>
                 <div style={styles.cell}>
