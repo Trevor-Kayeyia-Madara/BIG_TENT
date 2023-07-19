@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navigation from './Navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -47,7 +46,6 @@ const CheckoutPage = () => {
 
   return (
     <div style={styles.container}>
-      <Navigation />
       <div style={styles.card}>
         <h2 style={styles.heading}>Checkout</h2>
         <div style={styles.formGroup}>

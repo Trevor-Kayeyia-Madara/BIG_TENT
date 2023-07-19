@@ -42,6 +42,7 @@ export default Navigation;
 
 const styles = {
   navbar: {
+    position:'fixed',
     background: '#f8f9fa',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },

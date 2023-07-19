@@ -27,6 +27,7 @@ const AdminDashboard = () => {
           <table style={styles.table}>
             <thead>
               <tr>
+              <th>Number</th>
               <th>Ticket Number</th>
       <th>Vehicle Registration Number</th>
       <th>Vehicle Make</th>
@@ -43,6 +44,7 @@ const AdminDashboard = () => {
             <tbody>
               {attendees.map((attendee) => (
                 <tr key={attendee.id}>
+                  <td>{attendee.id}</td>
                   <td>{attendee.ticket_number}</td>
                   <td>{attendee.vehicle_registration_number}</td>
                   <td>{attendee.vehicle_make}</td>
