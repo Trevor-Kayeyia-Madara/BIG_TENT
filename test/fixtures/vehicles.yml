@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_registration_number: MyString
+  vehicle_make: MyString
+  vehicle_model: MyString
+  driver_first_name: MyString
+  driver_last_name: MyString
+  driver_identification_number: MyString
+  driver_email: MyString
+  driver_telephone_number: MyString
+  vehicle_type: MyString
+  booking_status: MyString
+
+two:
+  vehicle_registration_number: MyString
+  vehicle_make: MyString
+  vehicle_model: MyString
+  driver_first_name: MyString
+  driver_last_name: MyString
+  driver_identification_number: MyString
+  driver_email: MyString
+  driver_telephone_number: MyString
+  vehicle_type: MyString
+  booking_status: MyString

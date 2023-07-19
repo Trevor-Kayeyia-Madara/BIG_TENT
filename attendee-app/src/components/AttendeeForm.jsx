@@ -48,7 +48,7 @@ const AttendeeForm = () => {
         if (data.error) {
           toast.error(data.error);
         } else {
-          toast.success(`Attendee registered successfully. Your Ticket Number is: ${data.ticket_number}. Please keep it for checking at the gate`);
+          toast.success(`Vehicle registered successfully. Your Ticket Number is: ${data.ticket_number}. Please keep it for checking at the gate`);
 
           // Clear form fields after successful registration
           setVehicleRegistrationNumber('');
@@ -191,11 +191,11 @@ const AttendeeForm = () => {
               value={vehicleType}
               onChange={(event) => setVehicleType(event.target.value)}
             >
-              <option value="">Select Vehicle Type</option>
-              <option value="car">Car</option>
-              <option value="bus">Bus</option>
-              <option value="motorcycle">Motorcycle</option>
-              <option value="truck">Truck</option>
+              <option>Select Vehicle Type</option>
+              <option value="CAR">Car</option>
+              <option value="BUS">Bus</option>
+              <option value="MCYLE">Motorcycle</option>
+              <option value="TRUCKY">Truck</option>
             </select>
           </div>
           <button type="submit" className="btn-register">Register</button>
