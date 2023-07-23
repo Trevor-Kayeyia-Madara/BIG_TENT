@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 const AdminDashboard = () => {
-  const [attendees, setAttendees] = useState([]);
+  const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
     fetchAttendees();
@@ -10,11 +10,11 @@ const AdminDashboard = () => {
 
   const fetchAttendees = async () => {
     try {
-      const response = await fetch('/attendees');
+      const response = await fetch('/reservations');
       const data = await response.json();
-      setAttendees(data);
+      setReservations(data);
     } catch (error) {
-      console.error('Error fetching attendees:', error);
+      console.error('Error fetching reservations:', error);
     }
   };
 
@@ -27,7 +27,6 @@ const AdminDashboard = () => {
           <table style={styles.table}>
             <thead>
               <tr>
-              <th>Number</th>
               <th>Ticket Number</th>
       <th>Vehicle Registration Number</th>
       <th>Vehicle Make</th>
@@ -39,23 +38,24 @@ const AdminDashboard = () => {
       <th>Driver Telephone Number</th>
       <th>Vehicle Type</th>
       <th>Booking Status</th>
+      <th>Pay State</th>
               </tr>
             </thead>
             <tbody>
-              {attendees.map((attendee) => (
-                <tr key={attendee.id}>
-                  <td>{attendee.id}</td>
-                  <td>{attendee.ticket_number}</td>
-                  <td>{attendee.vehicle_registration_number}</td>
-                  <td>{attendee.vehicle_make}</td>
-                  <td>{attendee.vehicle_model}</td>
-                  <td>{attendee.driver_first_name}</td>
-                  <td>{attendee.driver_last_name}</td>
-                  <td>{attendee.driver_identification_number}</td>
-                  <td>{attendee.driver_email}</td>
-                  <td>{attendee.driver_telephone_number}</td>
-                  <td>{attendee.vehicle_type}</td>
-                  <td>{attendee.booking_status}</td>
+              {reservations.map((reservation) => (
+                <tr key={reservation.id}>
+                  <td>{reservation.ticket_number}</td>
+                  <td>{reservation.vehicle_registration_number}</td>
+                  <td>{reservation.vehicle_make}</td>
+                  <td>{reservation.vehicle_model}</td>
+                  <td>{reservation.driver_first_name}</td>
+                  <td>{reservation.driver_last_name}</td>
+                  <td>{reservation.driver_identification_number}</td>
+                  <td>{reservation.driver_email}</td>
+                  <td>{reservation.driver_telephone_number}</td>
+                  <td>{reservation.vehicle_type}</td>
+                  <td>{reservation.booking_status}</td>
+                  <td>{reservation.pay_state}</td>
                 </tr>
               ))}
             </tbody>
@@ -74,7 +74,8 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    padding: '20px',
+    maxWidth: '2700px',
+    padding: '10px',
     background: '#f2f2f2',
   },
   card: {
@@ -93,18 +94,19 @@ const styles = {
   },
   tableContainer: {
     marginTop: '20px',
+    maxWidth:'2000px',
   },
   table: {
     width: '100%',
     borderCollapse: 'collapse',
-    border: '1px solid #ddd',
+    border: '3px solid #ddd',
   },
   tableHeader: {
     background: '#f2f2f2',
     fontWeight: 'bold',
   },
   tableCell: {
-    padding: '8px',
-    borderBottom: '1px solid #ddd',
+    padding: '20px',
+    borderBottom: '2px solid #ddd',
   },
 };

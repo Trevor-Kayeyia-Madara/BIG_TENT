@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './style.css'
 
-const AttendeeForm = () => {
+const ReservationForm = () => {
   const [vehicleRegistrationNumber, setVehicleRegistrationNumber] = useState('');
   const [vehicleMake, setVehicleMake] = useState('');
   const [vehicleModel, setVehicleModel] = useState('');
@@ -36,7 +36,7 @@ const AttendeeForm = () => {
     };
 
     // Send the attendee object to the backend API for registration
-    fetch('/attendees', {
+    fetch('/reservations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const AttendeeForm = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        toast.error('An error occurred during attendee registration.');
+        toast.error('An error occurred during reservation.');
       });
   };
 
@@ -195,7 +195,7 @@ const AttendeeForm = () => {
               <option value="CAR">Car</option>
               <option value="BUS">Bus</option>
               <option value="MCYLE">Motorcycle</option>
-              <option value="TRUCKY">Truck</option>
+              <option value="TRUCK">Truck</option>
             </select>
           </div>
           <button type="submit" className="btn-register">Register</button>
@@ -205,4 +205,4 @@ const AttendeeForm = () => {
   );
 };
 
-export default AttendeeForm;
+export default ReservationForm;

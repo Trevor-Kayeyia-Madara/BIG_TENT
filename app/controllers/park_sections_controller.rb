@@ -1,0 +1,2 @@
+class ParkSectionsController < ApplicationRecord
+end

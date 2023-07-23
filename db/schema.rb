@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_121447) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_202349) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -19,7 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_121447) do
     t.index ["username"], name: "index_admins_on_username", unique: true
   end
 
-  create_table "attendees", force: :cascade do |t|
+  create_table "park_sections", force: :cascade do |t|
+    t.string "park_name"
+    t.string "park_num"
+    t.string "park_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
     t.string "vehicle_registration_number"
     t.string "vehicle_make"
     t.string "vehicle_model"
@@ -34,6 +42,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_121447) do
     t.datetime "date_stamp"
     t.string "booking_status"
     t.string "ticket_number"
+    t.integer "duration"
+    t.float "parking_charge"
+    t.boolean "pay_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations_transacts", id: false, force: :cascade do |t|
+    t.integer "reservation_id", null: false
+    t.integer "transact_id", null: false
+    t.string "vehicle_reg_no"
+  end
+
+  create_table "transacts", force: :cascade do |t|
+    t.date "transaction_date"
+    t.time "transaction_time"
+    t.integer "duration"
+    t.float "amount"
+    t.string "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

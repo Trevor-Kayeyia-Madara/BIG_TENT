@@ -4,21 +4,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CheckoutPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [attendee, setAttendee] = useState(null);
+  const [reservation, setReservations] = useState(null);
   const [checkoutMessage, setCheckoutMessage] = useState('');
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`/admin/search_attendee?query=${searchQuery}`);
+      const response = await fetch(`/admin/search_reservations?query=${searchQuery}`);
       if (response.ok) {
         const data = await response.json();
-        setAttendee(data);
+        setReservations(data);
       } else {
-        setAttendee(null);
-        console.error('Error searching attendee:', response.status);
+        setReservations(null);
+        console.error('Error searching reservations:', response.status);
       }
     } catch (error) {
-      setAttendee(null);
+      setReservations(null);
       console.error('Error searching attendee:', error);
     }
   };
@@ -30,7 +30,7 @@ const CheckoutPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ticket_number: attendee.ticket_number }),
+        body: JSON.stringify({ ticket_number: reservation.ticket_number }),
       });
 
       if (response.ok) {
@@ -68,53 +68,53 @@ const CheckoutPage = () => {
             </div>
           </div>
         </div>
-        {attendee && (
+        {reservation && (
           <div>
-            <h3 style={styles.detailsHeading}>Attendee Details</h3>
+            <h3 style={styles.detailsHeading}>Reservation Details</h3>
             <div style={styles.blockTable}>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Ticket Number:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.ticket_number}</div>
+                <div style={styles.cell}>{reservation.ticket_number}</div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Vehicle Registration:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.vehicle_registration_number}</div>
+                <div style={styles.cell}>{reservation.vehicle_registration_number}</div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Vehicle Type:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.vehicle_type}</div>
+                <div style={styles.cell}>{reservation.vehicle_type}</div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Driver Name:</strong>
                 </div>
                 <div style={styles.cell}>
-                  {attendee.driver_first_name} {attendee.driver_last_name}
+                  {reservation.driver_first_name} {reservation.driver_last_name}
                 </div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Driver Identification Number:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.driver_identification_number}</div>
+                <div style={styles.cell}>{reservation.driver_identification_number}</div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Driver Email:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.driver_email}</div>
+                <div style={styles.cell}>{reservation.driver_email}</div>
               </div>
               <div style={styles.row}>
                 <div style={styles.cell}>
                   <strong>Driver Telephone Number:</strong>
                 </div>
-                <div style={styles.cell}>{attendee.driver_telephone_number}</div>
+                <div style={styles.cell}>{reservation.driver_telephone_number}</div>
               </div>
             </div>
             <button className="btn btn-danger" onClick={handleCheckout}>
