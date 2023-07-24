@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_23_202349) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_21_131016) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -45,22 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_202349) do
     t.integer "duration"
     t.float "parking_charge"
     t.boolean "pay_state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reservations_transacts", id: false, force: :cascade do |t|
-    t.integer "reservation_id", null: false
-    t.integer "transact_id", null: false
-    t.string "vehicle_reg_no"
-  end
-
-  create_table "transacts", force: :cascade do |t|
-    t.date "transaction_date"
-    t.time "transaction_time"
-    t.integer "duration"
-    t.float "amount"
-    t.string "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
