@@ -6,7 +6,7 @@ set -o errexit
 bundle install
 
 # Precompile assets for production
-bundle exec rails assets:precompile
+bundle exec rake assets:precompile
 
 # Clean up assets
 bundle exec rails assets:clean
