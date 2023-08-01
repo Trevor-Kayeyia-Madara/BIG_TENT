@@ -6,8 +6,6 @@ TMK Parking App is a web application built using Ruby on Rails that aims to simp
 
 ## Features
 
-- User Authentication: The app allows users to create accounts, log in, and reset their passwords securely.
-- Parking Spot Listing: Parking lot owners can list their available parking spots, including details like location, price, and availability.
 - Booking System: Customers can search for available parking spots, book them for specific dates and times, and make payments.
 - User Dashboard: Each user has a personalized dashboard that displays their bookings, reservations, and account information.
 - Ratings and Reviews: Customers can leave ratings and reviews for parking spots they have used, helping others make informed decisions.
@@ -20,14 +18,13 @@ These instructions will help you set up the TMK Parking App on your local machin
 
 ### Prerequisites
 
-- Ruby (version X.X.X)
-- Ruby on Rails (version X.X.X)
-- PostgreSQL (version X.X.X)
+- Ruby (version 2.7.8)
+- Ruby on Rails (version 7.0.6)
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/tmk-parking-app.git`
-2. Change to the app's directory: `cd tmk-parking-app`
+1. Clone the repository: `git clone https://github.com/Trevor-Kayeyia-Madara/t-m-k-parking-rails.git`
+2. Change to the app's directory: `cd tmk-parking-rails`
 3. Install the required gems: `bundle install`
 4. Create and migrate the database: `rails db:create && rails db:migrate`
 5. Seed the database with sample data: `rails db:seed`
