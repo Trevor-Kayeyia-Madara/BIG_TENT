@@ -1,42 +1,78 @@
-# Parking App
+# TMK PARKING APP (Rails)
 
-The Parking App is a web application developed for managing attendee parking at BIGTENT's Revival Meetings in Kasarani Stadium. The app allows attendees to register their vehicles and provides an Admin Console for managing attendee details, granting parking access, and tracking available parking sections in the stadium.
+![TMK Parking App Logo](app_logo.png)
+
+TMK Parking App is a web application built using Ruby on Rails that aims to simplify parking management for both parking lot owners and customers. The app provides an easy-to-use interface for users to find available parking spots, book them in advance, and manage their parking reservations.
 
 ## Features
 
-- Attendee Registration: Attendees can register their vehicles by providing vehicle details and driver information.
-- Success Message with Ticket Number: After successful registration, a success message with a generated ticket number is displayed to the attendee.
-- Admin Console: Provides a separate UI frontend for managing attendee details and parking access.
-- Attendee Details Table: The Admin Console displays a table of attendees' details fetched from the database.
-- Granting Parking Access: The Admin Console allows the admin to grant parking access by entering the Ticket Number or Vehicle Registration Number to display attendee details.
-- Vehicle Type Indication: The database indicates whether the registered vehicle is a car, bus, or motorcycle.
-- Date Stamp: The app automatically provides the current date stamp to indicate that a driver can use the same vehicle for another date.
-- VIP, Regular, and Big_Tent Organizers Provision: The database differentiates between VIP attendees, regular attendees, and Big_Tent organizers.
-- Time In and Time Out: The app tracks the time in and time out for each attendee.
-- Parking Sections at Kasarani Stadium: The app manages parking sections A, B, C, D, E, F, and G with specific capacity and allocation rules.
-- Systematic Allocation: Parking sections are allocated systematically, beginning from A for VIPs and then D to G for regular attendees.
-- Status Display: The Admin Console displays the status of each parking section, indicating the number of available parking spots.
-- Deduction of Spots: Available spots are deducted when an attendee parks their vehicle.
-- Sequential Allocation: The allocation of parking spots begins from section D to G since sections A to C are reserved.
+- User Authentication: The app allows users to create accounts, log in, and reset their passwords securely.
+- Parking Spot Listing: Parking lot owners can list their available parking spots, including details like location, price, and availability.
+- Booking System: Customers can search for available parking spots, book them for specific dates and times, and make payments.
+- User Dashboard: Each user has a personalized dashboard that displays their bookings, reservations, and account information.
+- Ratings and Reviews: Customers can leave ratings and reviews for parking spots they have used, helping others make informed decisions.
+- Admin Panel: An admin panel allows administrators to manage users, parking spots, and reservations effectively.
+- Notifications: Users receive notifications for booking confirmations, cancellations, and other important updates.
 
-## Installation
+## Getting Started
 
-1. Clone the repository: `git clone https://github.com/Trevor-Kayeyia-Madara/BIG_TENT.git`
-2. Install the required dependencies: `npm install`
-3. Configure the database connection in the backend.
-4. Start the server: `npm start`
-5. Access the app at `http://localhost:3000`
+These instructions will help you set up the TMK Parking App on your local machine for development and testing purposes.
 
-## Technologies Used
+### Prerequisites
 
-- Frontend: React.js, Bootstrap
-- Backend: Node.js, Express.js
-- Database: SQLite3
+- Ruby (version X.X.X)
+- Ruby on Rails (version X.X.X)
+- PostgreSQL (version X.X.X)
+
+### Installation
+
+1. Clone the repository: `git clone https://github.com/yourusername/tmk-parking-app.git`
+2. Change to the app's directory: `cd tmk-parking-app`
+3. Install the required gems: `bundle install`
+4. Create and migrate the database: `rails db:create && rails db:migrate`
+5. Seed the database with sample data: `rails db:seed`
+6. Start the Rails server: `rails server`
+
+The app should now be running locally at `http://localhost:3000`.
+
+### Configuration
+
+Before running the app, ensure that you have set up the required environment variables. Check the `.env.example` file for the list of variables needed and create a `.env` file in the root directory with the appropriate values.
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+We welcome contributions to improve the TMK Parking App. If you find any issues or have suggestions, please follow these steps:
+
+1. Fork the repository on GitHub.
+2. Create a new branch with a descriptive name: `git checkout -b feature/your-feature-name`.
+3. Make your changes and commit them: `git commit -m "Add your commit message here"`.
+4. Push the changes to your forked repository: `git push origin feature/your-feature-name`.
+5. Open a pull request on the main repository and describe your changes in detail.
+
+We will review your contribution and merge it if it meets our guidelines and aligns with the project's objectives.
+
+Thank you for contributing to the TMK Parking App!
+
+## Acknowledgments
+
+We would like to extend our gratitude to the following individuals and projects for their contributions and inspiration:
+
+- Hat tip to anyone whose code was used as a reference or inspiration.
+- Special thanks to the TMK Parking App development team for their hard work and dedication in creating this application.
 
 ## License
 
-[License Name]
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or support, please contact the development team at <tmk-parking-app@example.com>.
+
+Happy parking with TMK Parking App!
+
+### Testing
+
+To run the automated tests, execute the following command:
+
+```bash
+rails test
