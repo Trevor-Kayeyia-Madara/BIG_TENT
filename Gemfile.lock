@@ -119,6 +119,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.3-x64-unknown)
       racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.5.3)
     puma (5.6.6)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -161,8 +164,6 @@ GEM
     ruby_http_client (3.5.5)
     sendgrid-ruby (6.6.2)
       ruby_http_client (~> 3.4)
-    sqlite3 (1.6.3-x64-mingw32)
-    sqlite3 (1.6.3-x64-unknown)
     thor (1.2.2)
     timeout (0.4.0)
     tzinfo (2.0.6)
@@ -177,17 +178,18 @@ GEM
 PLATFORMS
   x64-mingw32
   x64-unknown
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
   bcrypt
   bootsnap
   debug
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.6)
   sendgrid-ruby
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
