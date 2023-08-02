@@ -84,6 +84,7 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.12.0)
+    execjs (2.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -121,6 +122,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.3-x64-unknown)
       racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.5.3)
     puma (5.6.6)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -163,7 +167,6 @@ GEM
     ruby_http_client (3.5.5)
     sendgrid-ruby (6.6.2)
       ruby_http_client (~> 3.4)
-    sqlite3 (1.6.3-x64-mingw-ucrt)
     sqlite3 (1.6.3-x64-mingw32)
     sqlite3 (1.6.3-x64-unknown)
     thor (1.2.2)
@@ -172,6 +175,8 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -181,18 +186,21 @@ PLATFORMS
   x64-mingw-ucrt
   x64-mingw32
   x64-unknown
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
   bcrypt
   bootsnap
   debug
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.6)
   sendgrid-ruby
-  sqlite3 (~> 1.4)
+  sprockets-rails
   tzinfo-data
+  uglifier
 
 RUBY VERSION
    ruby 3.2.2p53
