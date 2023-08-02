@@ -1,22 +1,16 @@
-# config/database.yml
-
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  host: localhost # Set the PostgreSQL server host here
-  username: your_postgres_username # Set your PostgreSQL username here
-  password: your_postgres_password # Set your PostgreSQL password here
 
 development:
   <<: *default
-  database: your_database_name_development # Set your development database name here
+  database: db/development.sqlite3 # Set your development database name here
 
 test:
   <<: *default
-  database: your_database_name_test # Set your test database name here
+  database: db/test.sqlite3 # Set your test database name here
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: db/production.sqlite3 # Set your production database name here
