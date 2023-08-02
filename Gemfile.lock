@@ -115,6 +115,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.3-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.15.3-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.15.3-x64-unknown)
@@ -161,6 +163,7 @@ GEM
     ruby_http_client (3.5.5)
     sendgrid-ruby (6.6.2)
       ruby_http_client (~> 3.4)
+    sqlite3 (1.6.3-x64-mingw-ucrt)
     sqlite3 (1.6.3-x64-mingw32)
     sqlite3 (1.6.3-x64-unknown)
     thor (1.2.2)
@@ -175,6 +178,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  x64-mingw-ucrt
   x64-mingw32
   x64-unknown
 
@@ -191,7 +195,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.8p225
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.17

@@ -11,7 +11,9 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.string :driver_telephone_number
       t.string :vehicle_type
       t.time :check_in_time
+      t.string :check_in_admin
       t.time :check_out_time
+      t.string :check_out_admin
       t.datetime :date_stamp
       t.string :booking_status
       t.string :ticket_number

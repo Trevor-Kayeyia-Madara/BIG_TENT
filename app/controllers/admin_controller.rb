@@ -4,16 +4,22 @@ class AdminController < ApplicationController
   end
 
   def grant_access
+    admin_name = session[:admin_username]
     reservation = Reservation.find_by(ticket_number: params[:ticket_number])
   
     if reservation
       park_section = ParkSection.find_by(park_status: 'VAC')
   
       if park_section
-        reservation.update(booking_status: 'IN', check_in_time: Time.now.gmtime + 3.hours, pay_state: 'FALSE')
+        reservation.update(
+          booking_status: 'IN',
+          check_in_time: Time.now.gmtime + 3.hours,
+          pay_state: 'FALSE',
+          check_in_admin: admin_name # Use admin_name from the session
+        )
         park_section.update(park_status: 'OCC') # Change park section status from 'VAC' to 'OCC'
-        message = "Vehicle successfully checked in. Please park in Park Number #{park_section.park_num}."
-      render json: { message: message, allocated_park_section: park_section } # Include allocated park section in the response
+        message = "Vehicle successfully checked in by #{admin_name}. Please park in Park Number #{park_section.park_num}."
+        render json: { message: message, allocated_park_section: park_section } # Include allocated park section in the response
       else
         message = 'No vacant park sections available'
         render json: { message: message }
@@ -24,19 +30,17 @@ class AdminController < ApplicationController
     end
   end
   
-  # Helper method to find a vacant park section sequentially based on park_num
+
   def find_vacant_park_section(park_num)
     next_vacant_park_section = ParkSection.find_by(park_num: park_num, park_status: 'VAC')
     return next_vacant_park_section if next_vacant_park_section
   
-    # If no vacant park section found for the given park_num, try to find the next available vacant park section
     next_vacant_park_section = ParkSection.find_by(park_status: 'VAC')
     return next_vacant_park_section if next_vacant_park_section
   
     nil # Return nil if no vacant park section is available at all
   end
-  
-  
+
   def login
     username = params[:username]
     password = params[:password]
@@ -44,10 +48,15 @@ class AdminController < ApplicationController
     admin = Admin.find_by(username: username)
 
     if admin&.authenticate(password)
+      # Set the admin's username in the session
+      session[:admin_username] = admin.username
       render json: { message: 'Successfully logged in' }
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
+  end
+  def current_admin
+    @current_admin ||= Admin.find_by(username: session[:admin_username])
   end
 
   def search_reservations
@@ -67,6 +76,7 @@ class AdminController < ApplicationController
   end
 
   def checkout
+    admin_name = session[:admin_username]
     ticket_number = params[:ticket_number]
     vehicle_registration_number = params[:vehicle_registration_number]
   
@@ -99,6 +109,4 @@ class AdminController < ApplicationController
       render json: { error: 'Attendee not found' }, status: :not_found
     end
   end
-  
- 
 end

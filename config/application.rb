@@ -25,6 +25,9 @@ module BIGTentParking
     config.load_defaults 7.0
     config.time_zone = 'Eastern Time (US & Canada)'
 
+
+    config.middleware.use ActionDispatch::Session::CookieStore
+
     
     # Configuration for the application, engines, and railties goes here.
     #

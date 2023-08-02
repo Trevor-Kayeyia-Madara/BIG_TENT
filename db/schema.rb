@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_01_075301) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_21_131016) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -38,7 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_075301) do
     t.string "driver_telephone_number"
     t.string "vehicle_type"
     t.time "check_in_time"
+    t.string "check_in_admin"
     t.time "check_out_time"
+    t.string "check_out_admin"
     t.datetime "date_stamp"
     t.string "booking_status"
     t.string "ticket_number"
