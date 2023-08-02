@@ -6,10 +6,10 @@ class AdminController < ApplicationController
   def grant_access
     admin_username = session[:admin_username]
     reservation = Reservation.find_by(ticket_number: params[:ticket_number])
-
+  
     if reservation
       park_section = ParkSection.find_by(park_status: 'VAC')
-
+  
       if park_section
         reservation.update(
           booking_status: 'IN',
@@ -29,6 +29,7 @@ class AdminController < ApplicationController
       render json: { message: message }
     end
   end
+  
 
   def find_vacant_park_section(park_num)
     next_vacant_park_section = ParkSection.find_by(park_num: park_num, park_status: 'VAC')

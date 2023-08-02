@@ -7,8 +7,8 @@ class AdminSessionsController < ApplicationController
   
       if admin&.authenticate(password)
         # Set the admin's username in the session
-        session[:admin_username] = admin.username
-        render json: { message: 'Successfully logged in' }
+        session[:admin_username] = admin_username
+        redirect_to admin_dashboard_path, notice: 'Login successful!'
       else
         render json: { error: 'Invalid username or password' }, status: :unauthorized
       end
